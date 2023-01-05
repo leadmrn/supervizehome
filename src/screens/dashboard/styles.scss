@@ -1,0 +1,18 @@
+@import '../../app/theme.scss';
+
+.Dashboard {
+  display: flex;
+  justify-content: space-between;
+  .column-left {
+    width: 38%;
+  }
+  .column-right {
+    width: 58%;
+  }
+}
+
+.Dashboard_divTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

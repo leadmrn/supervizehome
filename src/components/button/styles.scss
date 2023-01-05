@@ -1,0 +1,17 @@
+@import '../../app/theme.scss';
+
+.Button {
+  padding: 8px 14px;
+  border-radius: 10px;
+  width: fit-content;
+  color: $white;
+  &.primary {
+    background-color: $primary;
+  }
+  &.secondary {
+    background-color: $secondary;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

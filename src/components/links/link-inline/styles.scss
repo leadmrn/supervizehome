@@ -1,0 +1,7 @@
+@import '../../../app/theme.scss';
+
+.LinkInline a {
+  color: $orange;
+  text-decoration: underline;
+  font-weight: bold;
+}

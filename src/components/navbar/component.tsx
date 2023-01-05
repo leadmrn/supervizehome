@@ -1,18 +1,37 @@
-import { Link, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 
-function NavBar() {
+import LinkMenu from '../links/link-menu';
+import Button from '../button';
+import logo from '../../assets/global/logo.svg';
+
+import './styles.scss';
+
+export default function NavBar() {
+  const navigate = useNavigate();
   return (
-    <div className="NavBar">
-      <p>Logo</p>
-      <nav>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/guide">Guide de construction</Link>
-        <Link to="/login">Connexion</Link>
-        <Link to="/register">Inscription</Link>
-      </nav>
+    <div>
+      <div className="NavBar">
+        <img src={logo} alt="Logo" />
+        <nav>
+          <LinkMenu path="/dashboard" name="Dashboard" />
+          <LinkMenu path="/guide" name="Guide de construction" />
+          <Button
+            action={() => {
+              navigate('/login');
+            }}
+            text="Connexion"
+            type="primary"
+          />
+          <Button
+            action={() => {
+              navigate('/register');
+            }}
+            text="Inscription"
+            type="secondary"
+          />
+        </nav>
+      </div>
       <Outlet />
     </div>
   );
 }
-
-export default NavBar;

@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-import Dashboard from './screens/dashboard/screen';
-import Login from './screens/login/screen';
-import Register from './screens/register/screen';
-import ErrorPage from './screens/error/screen';
-import Guide from './screens/guide/screen';
-import NavBar from './components/navbar/component';
+import './app/theme.scss';
+import Dashboard from './screens/dashboard';
+import Login from './screens/login';
+import Register from './screens/register';
+import ErrorPage from './screens/error';
+import Guide from './screens/guide';
+import NavBar from './components/navbar';
+import Projects from './screens/projects';
+import AddArtisan from './screens/add-artisan';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
       {
         path: '/guide',
         element: <Guide />,
+      },
+      {
+        path: '/projects',
+        element: <Projects />,
+      },
+      {
+        path: '/add-artisan',
+        element: <AddArtisan />,
       },
     ],
   },
