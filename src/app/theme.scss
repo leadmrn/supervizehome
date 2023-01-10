@@ -13,7 +13,8 @@ body {
 }
 
 p,
-h2 {
+h2,
+h1 {
   margin: 0;
 }
 
@@ -22,4 +23,24 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.form_div2col {
+  display: flex;
+  justify-content: space-between;
+  > input {
+    width: 45%;
+  }
+}
+
+.center {
+  text-align: center;
 }

@@ -12,6 +12,8 @@ import Guide from './screens/guide';
 import NavBar from './components/navbar';
 import Projects from './screens/projects';
 import AddArtisan from './screens/add-artisan';
+import AddProject from './screens/add-project';
+import AddReport from './screens/add-report';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
       {
         path: '/add-artisan',
         element: <AddArtisan />,
+      },
+      {
+        path: '/add-project',
+        element: <AddProject />,
+      },
+      {
+        path: '/add-report',
+        element: <AddReport />,
       },
     ],
   },

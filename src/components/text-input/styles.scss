@@ -1,0 +1,16 @@
+.TextInput {
+  padding: 8px 12px;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  margin: 5px 0;
+  color: #494949;
+  font-size: 14px;
+  &::placeholder {
+    text-transform: lowercase;
+    color: #494949;
+    font-size: 14px;
+  }
+  &:focus {
+    outline: none;
+  }
+}

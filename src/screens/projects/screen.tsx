@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ProjectCard from '../../components/project-card';
 
 import './styles.scss';
@@ -7,7 +8,9 @@ function Projects() {
     <div className="Projects page">
       <ProjectCard title="Maison" location="Nice" />
       <ProjectCard title="Loft" location="Paris" />
-      <ProjectCard addProject={true} />
+      <Link to="/add-project">
+        <ProjectCard addProject={true} />
+      </Link>
     </div>
   );
 }

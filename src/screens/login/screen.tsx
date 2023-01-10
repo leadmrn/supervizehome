@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
+import TextInput from '../../components/text-input';
 
 function Login() {
   return (
-    <div>
-      <h1>Connexion</h1>
-      <form>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Mot de passe" />
+    <div className="Login page">
+      <h1 className="center">Connexion</h1>
+      <form className="form">
+        <TextInput type="email" placeholder="Email" />
+        <TextInput type="password" placeholder="Mot de passe" />
         <input type="submit" title="Se connecter" />
       </form>
       <Link to="/register">pas encore inscrit ?</Link>
