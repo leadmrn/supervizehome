@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Add from '../../components/add/component';
 import ArtisanItem from '../../components/artisan-item';
 import LinkInline from '../../components/links/link-inline';
 import ProjectItem from '../../components/project-item';
@@ -68,7 +69,11 @@ function Dashboard() {
               pics={['test', 'test']}
               documents={['test', 'test', 'test']}
             />
-            <Link to="/add-report">Ajouter un rapport</Link>
+            <Add
+              role="artisan"
+              routeToGo="/add-report"
+              text="Ajouter un rapport"
+            />
           </div>
         </div>
       </div>

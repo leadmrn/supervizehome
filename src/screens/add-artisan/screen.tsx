@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Back from '../../components/back/component';
 import Button from '../../components/button';
 import TextInput from '../../components/text-input';
 import './styles.scss';
@@ -17,6 +18,7 @@ function AddArtisan() {
 
   return (
     <div className="AddArtisan page">
+      <Back />
       <h1 className="center">
         Renseignez l'email de l’artisan que vous souhaitez ajouter à votre
         projet
@@ -25,7 +27,7 @@ function AddArtisan() {
         <TextInput
           id="search"
           type="text"
-          placeholder="Rechercher"
+          placeholder="email"
           value={search}
           onChange={handleChange}
         />

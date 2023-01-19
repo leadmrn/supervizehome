@@ -8,7 +8,6 @@ import Dashboard from './screens/dashboard';
 import Login from './screens/login';
 import Register from './screens/register';
 import ErrorPage from './screens/error';
-import Guide from './screens/guide';
 import NavBar from './components/navbar';
 import Projects from './screens/projects';
 import AddArtisan from './screens/add-artisan';
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
       {
         path: '/dashboard',
         element: <Dashboard />,
-      },
-      {
-        path: '/guide',
-        element: <Guide />,
       },
       {
         path: '/projects',

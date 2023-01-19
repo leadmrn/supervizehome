@@ -22,31 +22,33 @@ export default function NavBar() {
   return (
     <div>
       <div className="NavBar">
-        <img src={logo} alt="Logo" />
-        <h2>Hi {email}</h2>
+        <img className="logo" src={logo} alt="Logo" />
         <nav>
-          <LinkMenu path="/dashboard" name="Dashboard" />
-          <LinkMenu path="/guide" name="Guide de construction" />
-          {!token ? (
-            <>
-              <Button
-                action={() => {
-                  navigate('/login');
-                }}
-                text="Connexion"
-                type="primary"
-              />
-              <Button
-                action={() => {
-                  navigate('/register');
-                }}
-                text="Inscription"
-                type="secondary"
-              />
-            </>
-          ) : (
-            <Button action={onLogout} text="Deconnexion" type="destructive" />
-          )}
+          <div className="links">
+            <LinkMenu path="/dashboard" name="Dashboard" />
+          </div>
+          <div className="buttons">
+            {!token ? (
+              <>
+                <Button
+                  action={() => {
+                    navigate('/login');
+                  }}
+                  text="Connexion"
+                  type="primary"
+                />
+                <Button
+                  action={() => {
+                    navigate('/register');
+                  }}
+                  text="Inscription"
+                  type="secondary"
+                />
+              </>
+            ) : (
+              <Button action={onLogout} text="Deconnexion" type="destructive" />
+            )}
+          </div>
         </nav>
       </div>
       <Outlet />

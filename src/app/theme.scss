@@ -1,10 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 // COLORS
 $white: #fff;
 $black: #000000;
 $primary: #b27e55;
 $secondary: #245c60;
+$role: #e98862;
 $orange: #e98862;
 $destructive: #a00000;
 
@@ -28,11 +40,13 @@ a {
 
 .page {
   background: $white;
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px;
   height: calc(100vh - 200px);
   overflow: scroll;
+  animation: appear 0.5s forwards;
 }
 
 h1 {

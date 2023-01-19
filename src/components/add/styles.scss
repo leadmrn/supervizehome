@@ -1,0 +1,14 @@
+@import '../../app/theme.scss';
+
+.Add {
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $role;
+    font-weight: bold;
+    p {
+      margin-top: 10px;
+    }
+  }
+}

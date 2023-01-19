@@ -1,24 +1,18 @@
-import { Link } from 'react-router-dom';
 import ProjectCard from '../../components/project-card';
-import iconAdd from '../../assets/icons/add-orange.svg';
 
 import './styles.scss';
+import Back from '../../components/back/component';
+import Add from '../../components/add/component';
 
 function Projects() {
   return (
     <div className="Projects page">
+      <Back />
       <div className="items">
         <ProjectCard title="Maison" location="Nice" />
         <ProjectCard title="Loft" location="Paris" />
       </div>
-      <div className="add_project">
-        <Link to="/add-project">
-          <div>
-            <img src={iconAdd} alt="Icon ajouter un projet" />
-            <p>Ajouter un projet</p>
-          </div>
-        </Link>
-      </div>
+      <Add role="client" routeToGo="/add-project" text="Ajouter un projet" />
     </div>
   );
 }

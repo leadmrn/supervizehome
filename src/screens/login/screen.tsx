@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { login } from '../../redux/userSlice';
 import { userService } from '../../service/user';
 import { useState } from 'react';
+import './styles.scss';
 
 function Login() {
   const [formLogin, setFormLogin] = useState({
@@ -44,7 +45,9 @@ function Login() {
         />
         <Button text="Se connecter" type="primary" action={onLogin} />
       </form>
-      <Link to="/register">pas encore inscrit ?</Link>
+      <Link className="link" to="/register">
+        pas encore inscrit ?
+      </Link>
     </div>
   );
 }

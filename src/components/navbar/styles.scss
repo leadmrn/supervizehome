@@ -2,8 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  nav {
+  padding: 20px;
+  .logo {
+    height: 25px;
+  }
+  nav,
+  .buttons,
+  .links {
     display: flex;
     align-items: center;
+  }
+  .links {
+    margin-right: 40px;
+  }
+  .Button:last-child {
+    margin-left: 20px;
   }
 }

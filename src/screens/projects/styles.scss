@@ -10,17 +10,7 @@
     align-items: center;
     justify-content: center;
   }
-  .add_project {
+  .Add {
     margin-top: 30px;
-    div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: $orange;
-      font-weight: bold;
-      p {
-        margin-top: 10px;
-      }
-    }
   }
 }

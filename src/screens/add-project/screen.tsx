@@ -1,8 +1,10 @@
+import Back from '../../components/back/component';
 import TextInput from '../../components/text-input';
 
 function AddProject() {
   return (
     <div className="AddProject page">
+      <Back />
       <h1 className="center">Votre projet</h1>
       {/* <form className="form">
         <TextInput type="text" placeholder="Nom" />
