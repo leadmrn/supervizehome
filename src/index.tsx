@@ -14,6 +14,9 @@ import Projects from './screens/projects';
 import AddArtisan from './screens/add-artisan';
 import AddProject from './screens/add-project';
 import AddReport from './screens/add-report';
+import { Provider } from 'react-redux';
+import { persistor, store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 
 const router = createBrowserRouter([
   {
@@ -58,9 +61,13 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <React.StrictMode>
+        <RouterProvider router={router} />
+      </React.StrictMode>
+    </PersistGate>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -11,10 +11,10 @@ export default function ProjectItem(props: {
   return (
     <div className="ProjectItem">
       <div>
-        <p>{props.title}</p>
+        <h4>{props.title}</h4>
         <p>{props.location}</p>
-        <p>Superficie du terrain : {props.landArea}</p>
-        <p>Superficie de la maison : {props.houseArea}</p>
+        <p>Superficie du terrain : {props.landArea}m2</p>
+        <p>Superficie de la maison : {props.houseArea}m2</p>
         <p>Date de début du projet : {props.dateStart}</p>
       </div>
       <div>

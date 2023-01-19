@@ -6,6 +6,7 @@ $black: #000000;
 $primary: #b27e55;
 $secondary: #245c60;
 $orange: #e98862;
+$destructive: #a00000;
 
 body {
   font-family: 'Montserrat';
@@ -14,8 +15,15 @@ body {
 
 p,
 h2,
-h1 {
+h1,
+h3,
+h4 {
   margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .page {
@@ -23,6 +31,14 @@ h1 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 30px;
+  height: calc(100vh - 200px);
+  overflow: scroll;
+}
+
+h1 {
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .form {

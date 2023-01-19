@@ -5,6 +5,9 @@
   justify-content: space-between;
   .column-left {
     width: 38%;
+    > div:first-child {
+      margin-bottom: 30px;
+    }
   }
   .column-right {
     width: 58%;

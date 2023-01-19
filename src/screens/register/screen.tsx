@@ -8,7 +8,7 @@ function Register() {
   return (
     <div className="Register page">
       <h1 className="center">Inscription</h1>
-      <form className="form">
+      {/* <form className="form">
         <p>Je suis un :</p>
         <div>
           <div onClick={() => setIsArtisan(false)}>
@@ -29,7 +29,7 @@ function Register() {
         <TextInput type="password" placeholder="Mot de passe" />
         <TextInput type="password" placeholder="Confirmation du mot de passe" />
         <input type="submit" title="S'inscrire" />
-      </form>
+      </form> */}
       <Link to="/login">déjà inscrit ?</Link>
     </div>
   );

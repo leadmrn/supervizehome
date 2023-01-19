@@ -1,0 +1,11 @@
+@import '../../app/theme.scss';
+
+.Badge {
+  border-radius: 5px;
+  padding: 5px 30px;
+  background-color: rgba(233, 136, 98, 0.38);
+  font-size: 12px;
+  font-weight: bold;
+  color: $orange;
+  width: fit-content;
+}

@@ -11,6 +11,9 @@
   &.secondary {
     background-color: $secondary;
   }
+  &.destructive {
+    background-color: $destructive;
+  }
   &:hover {
     cursor: pointer;
   }

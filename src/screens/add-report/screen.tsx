@@ -4,7 +4,7 @@ function AddReport() {
   return (
     <div className="AddReport page">
       <h1 className="center">Mon rapport</h1>
-      <form className="form">
+      {/* <form className="form">
         <TextInput type="text" placeholder="Titre" />
         <div className="form_div2col">
           <TextInput type="date" placeholder="Date de début" />
@@ -16,7 +16,7 @@ function AddReport() {
           placeholder="Décriver les travaux de manière exhaustive"
         />
         <input type="submit" value="Envoyer" />
-      </form>
+      </form> */}
     </div>
   );
 }

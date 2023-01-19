@@ -28,7 +28,7 @@ function Dashboard() {
         </div>
         <div>
           <div className="Dashboard_divTitle">
-            <TitleMedium title="mes artisans" />
+            <TitleMedium title="l'équipe projet" />
             <LinkInline name="ajouter" path="/add-artisan" />
           </div>
           <div>
@@ -49,7 +49,9 @@ function Dashboard() {
       </div>
       <div className="column-right">
         <div>
-          <TitleMedium title="rapports travaux" />
+          <div className="Dashboard_divTitle">
+            <TitleMedium title="rapports travaux" />
+          </div>
           <div>
             <ReportItem
               title="Fondations"
