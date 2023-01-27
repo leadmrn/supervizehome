@@ -7,9 +7,13 @@
   left: 50px;
   &:hover {
     cursor: pointer;
+    img {
+      transform: translateX(-10px);
+    }
   }
   img {
     margin-right: 10px;
     height: 20px;
+    transition: all 0.5s;
   }
 }

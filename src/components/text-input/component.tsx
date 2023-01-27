@@ -2,7 +2,16 @@ import { TextInputProps } from './types';
 import './styles.scss';
 
 export default function TextInput(props: TextInputProps) {
-  return (
+  return props.type === 'textarea' ? (
+    <textarea
+      id={props.id}
+      className="TextInput"
+      rows={10}
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={props.onChange}
+    ></textarea>
+  ) : (
     <input
       id={props.id}
       className="TextInput"

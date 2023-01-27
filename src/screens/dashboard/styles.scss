@@ -1,8 +1,13 @@
 @import '../../app/theme.scss';
 
 .Dashboard {
-  display: flex;
-  justify-content: space-between;
+  .hello {
+    margin-bottom: 30px;
+  }
+  .columns {
+    display: flex;
+    justify-content: space-between;
+  }
   .column-left {
     width: 38%;
     > div:first-child {

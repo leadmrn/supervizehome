@@ -1,4 +1,4 @@
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation, Link } from 'react-router-dom';
 
 import LinkMenu from '../links/link-menu';
 import Button from '../button';
@@ -6,49 +6,67 @@ import logo from '../../assets/global/logo.svg';
 
 import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { userService } from '../../service/user';
 import { logout } from '../../redux/userSlice';
+import { useEffect } from 'react';
 
 export default function NavBar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const token = useSelector((state: any) => state.token);
-  const email = useSelector((state: any) => state.userInfo.role);
+  const role = useSelector((state: any) => state.userInfo.type);
 
   const onLogout = () => {
     dispatch(logout());
+    navigate('/login');
   };
+
+  useEffect(() => {
+    if (location.pathname === '/' && token) {
+      navigate('/dashboard');
+    } else if (location.pathname === '/' && !token) {
+      navigate('/login');
+    }
+  }, [location.pathname, navigate, token]);
 
   return (
     <div>
       <div className="NavBar">
-        <img className="logo" src={logo} alt="Logo" />
+        <Link to="/">
+          <img className="logo" src={logo} alt="Logo" />
+        </Link>
         <nav>
-          <div className="links">
-            <LinkMenu path="/dashboard" name="Dashboard" />
-          </div>
-          <div className="buttons">
-            {!token ? (
-              <>
+          {!token ? (
+            <div className="buttons">
+              <Button
+                action={() => {
+                  navigate('/login');
+                }}
+                text="Connexion"
+                type="primary"
+              />
+              <Button
+                action={() => {
+                  navigate('/register');
+                }}
+                text="Inscription"
+                type="secondary"
+              />
+            </div>
+          ) : (
+            <>
+              <div className="links">
+                <LinkMenu role={role} path="/dashboard" name="Dashboard" />
+              </div>
+              <div className="buttons">
                 <Button
-                  action={() => {
-                    navigate('/login');
-                  }}
-                  text="Connexion"
-                  type="primary"
+                  action={onLogout}
+                  text="Deconnexion"
+                  type="destructive"
                 />
-                <Button
-                  action={() => {
-                    navigate('/register');
-                  }}
-                  text="Inscription"
-                  type="secondary"
-                />
-              </>
-            ) : (
-              <Button action={onLogout} text="Deconnexion" type="destructive" />
-            )}
-          </div>
+              </div>
+            </>
+          )}
         </nav>
       </div>
       <Outlet />

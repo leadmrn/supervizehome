@@ -1,20 +1,22 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../../components/button';
 import TextInput from '../../components/text-input';
+import { userService } from '../../service/api';
 
 import './styles.scss';
 
 function Register() {
+  const navigate = useNavigate();
   const [isArtisan, setIsArtisan] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [formRegister, setFormRegister] = useState({
-    firstname: '',
-    lastname: '',
-    tel: '',
-    job: '',
+    username: '',
     email: '',
     password: '',
+    firstName: '',
+    lastName: '',
+    type: '',
   });
 
   const handleChange = (e: any) => {
@@ -28,19 +30,26 @@ function Register() {
   const onClickArtisan = () => {
     if (isClient) setIsClient(false);
     setIsArtisan(true);
+    setFormRegister((prevState) => ({ ...prevState, type: 'artisan' }));
   };
 
   const onClickClient = () => {
     if (isArtisan) setIsArtisan(false);
     setIsClient(true);
+    setFormRegister((prevState) => ({ ...prevState, type: 'client' }));
   };
 
-  const onRegister = () => {
-    console.log('prout');
+  const onRegister = async () => {
+    try {
+      await userService.register(formRegister);
+      navigate('/login');
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
-    <div className="Register page">
+    <div className="Register page content_center">
       <h1 className="center">Inscription</h1>
       <form className="form">
         <p>Je suis un :</p>
@@ -54,36 +63,27 @@ function Register() {
         </div>
         <div className="form_div2col">
           <TextInput
-            id="firstname"
+            id="firstName"
             type="text"
             placeholder="Prénom"
-            value={formRegister.firstname}
+            value={formRegister.firstName}
             onChange={handleChange}
           />
           <TextInput
-            id="lastname"
+            id="lastName"
             type="text"
             placeholder="Nom"
-            value={formRegister.lastname}
+            value={formRegister.lastName}
             onChange={handleChange}
           />
         </div>
         <TextInput
-          id="tel"
-          type="tel"
-          placeholder="N° de Téléphone"
-          value={formRegister.tel}
+          id="username"
+          type="text"
+          placeholder="Identifiant"
+          value={formRegister.username}
           onChange={handleChange}
         />
-        {isArtisan ? (
-          <TextInput
-            id="job"
-            type="text"
-            placeholder="Profession"
-            value={formRegister.job}
-            onChange={handleChange}
-          />
-        ) : null}
         <TextInput
           id="email"
           type="email"
@@ -98,7 +98,28 @@ function Register() {
           value={formRegister.password}
           onChange={handleChange}
         />
-        <Button text="S'inscrire" type="primary" action={onRegister} />
+        {/* <TextInput
+          id="tel"
+          type="tel"
+          placeholder="N° de Téléphone"
+          value={formRegister.tel}
+          onChange={handleChange}
+        />
+        <div className={`input_job ${isArtisan ? 'show' : null}`}>
+          <TextInput
+            id="job"
+            type="text"
+            placeholder="Profession"
+            value={formRegister.job}
+            onChange={handleChange}
+          />
+        </div> */}
+        <Button
+          className="button_submit"
+          text="S'inscrire"
+          type="primary"
+          action={onRegister}
+        />
       </form>
       <Link to="/login" className="link">
         déjà inscrit ?

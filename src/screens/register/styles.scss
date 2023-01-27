@@ -1,16 +1,6 @@
 @import '../../app/theme.scss';
 
 .Register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  .form {
-    width: 100%;
-    .Button {
-      margin: 10px auto 0;
-    }
-  }
   .checkboxs {
     display: flex;
     margin: 8px 0 15px;
@@ -40,6 +30,21 @@
       &.isCheck::before {
         background: $primary;
       }
+    }
+  }
+  .input_job {
+    display: flex;
+    z-index: -1;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 0;
+    }
+    input {
+      width: 100%;
     }
   }
   .link {

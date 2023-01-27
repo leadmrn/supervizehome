@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TextInput from '../../components/text-input';
 import Button from '../../components/button';
-import { useDispatch } from 'react-redux';
-import { login } from '../../redux/userSlice';
-import { userService } from '../../service/user';
+import { userService } from '../../service/api';
 import { useState } from 'react';
 import './styles.scss';
 
 function Login() {
+  const navigate = useNavigate();
   const [formLogin, setFormLogin] = useState({
     identifier: '',
     password: '',
@@ -22,11 +21,16 @@ function Login() {
   };
 
   const onLogin = async () => {
-    userService.login(formLogin);
+    try {
+      await userService.login(formLogin);
+      navigate('/projects');
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
-    <div className="Login page">
+    <div className="Login page content_center">
       <h1 className="center">Connexion</h1>
       <form className="form">
         <TextInput
@@ -43,7 +47,12 @@ function Login() {
           value={formLogin.password}
           onChange={handleChange}
         />
-        <Button text="Se connecter" type="primary" action={onLogin} />
+        <Button
+          className="button_submit"
+          text="Se connecter"
+          type="primary"
+          action={onLogin}
+        />
       </form>
       <Link className="link" to="/register">
         pas encore inscrit ?

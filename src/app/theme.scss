@@ -16,9 +16,34 @@ $white: #fff;
 $black: #000000;
 $primary: #b27e55;
 $secondary: #245c60;
-$role: #e98862;
+$client: #e98862;
+$artisan: #245c60;
 $orange: #e98862;
 $destructive: #a00000;
+
+.colorClient {
+  color: $client;
+}
+
+.backgroundClient {
+  background-color: $client;
+}
+
+.borderClient {
+  border-color: $client;
+}
+
+.colorArtisan {
+  color: $artisan;
+}
+
+.backgroundArtisan {
+  background-color: $artisan;
+}
+
+.borderArtisan {
+  border-color: $artisan;
+}
 
 body {
   font-family: 'Montserrat';
@@ -49,6 +74,13 @@ a {
   animation: appear 0.5s forwards;
 }
 
+.content_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1 {
   max-width: 800px;
   text-align: center;
@@ -59,6 +91,7 @@ h1 {
   display: flex;
   flex-direction: column;
   max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -73,4 +106,8 @@ h1 {
 
 .center {
   text-align: center;
+}
+
+.button_submit {
+  margin: 10px auto 0;
 }

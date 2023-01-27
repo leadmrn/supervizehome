@@ -7,9 +7,14 @@ export default function ProjectItem(props: {
   houseArea: number;
   dateStart: string;
   pic?: string;
+  role: string;
 }) {
   return (
-    <div className="ProjectItem">
+    <div
+      className={`ProjectItem ${
+        props.role === 'artisan' ? 'backgroundArtisan' : 'backgroundClient'
+      }`}
+    >
       <div>
         <h4>{props.title}</h4>
         <p>{props.location}</p>
@@ -17,9 +22,9 @@ export default function ProjectItem(props: {
         <p>Superficie de la maison : {props.houseArea}m2</p>
         <p>Date de début du projet : {props.dateStart}</p>
       </div>
-      <div>
+      {/* <div>
         <div className="pic"></div>
-      </div>
+      </div> */}
     </div>
   );
 }

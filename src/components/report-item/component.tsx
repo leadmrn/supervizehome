@@ -1,18 +1,32 @@
-import Badge from '../badge';
 import './styles.scss';
 import iconPicture from '../../assets/icons/attachment.svg';
 import iconFile from '../../assets/icons/file.svg';
+import { useNavigate } from 'react-router-dom';
+import { reportsService } from '../../service/api';
 
 export default function ReportItem(props: {
+  id: number;
   title: string;
   content: string;
-  user: string;
   date: string;
+  createdAt: string;
   pics?: string[];
   documents?: string[];
+  role: 'client' | 'artisan';
 }) {
+  const navigate = useNavigate();
+
+  const onClick = async () => {
+    try {
+      await reportsService.getById(props.id);
+      navigate(`/report/${props.id}`);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
-    <div className="ReportItem">
+    <div onClick={onClick} className="ReportItem">
       {props.pics || props.documents ? (
         <div className="attachments_files">
           {props.pics ? (
@@ -37,7 +51,6 @@ export default function ReportItem(props: {
       <div>
         <div className="date_job">
           <h3>{props.date}</h3>
-          <Badge job="Plombier" />
         </div>
         <h4>{props.title}</h4>
         <p className="text">{props.content}</p>

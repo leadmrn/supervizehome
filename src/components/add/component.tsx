@@ -11,7 +11,9 @@ export default function Add(props: {
   return (
     <div className="Add">
       <Link to={props.routeToGo}>
-        <div>
+        <div
+          className={props.role === 'artisan' ? 'colorArtisan' : 'colorClient'}
+        >
           <img
             src={props.role === 'artisan' ? iconAddGreen : iconAddOrange}
             alt="Icon ajouter"

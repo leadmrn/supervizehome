@@ -8,22 +8,35 @@ export default function ArtisanItem(props: {
   job: string;
   tel: string;
   mail: string;
+  role: 'client' | 'artisan';
 }) {
   return (
     <div className="ArtisanItem">
       <div>
         <p>{props.name}</p>
-        <Badge job={props.job} />
+        <Badge role={props.role} job={props.job} />
       </div>
       <div>
         <div className="ArtisanItem_info">
-          <div className="icon">
+          <div
+            className={`icon ${
+              props.role === 'artisan'
+                ? 'backgroundArtisan'
+                : 'backgroundClient'
+            }`}
+          >
             <img src={iconTel} alt="Icon tel" />
           </div>
           <p>{props.tel}</p>
         </div>
         <div className="ArtisanItem_info">
-          <div className="icon">
+          <div
+            className={`icon ${
+              props.role === 'artisan'
+                ? 'backgroundArtisan'
+                : 'backgroundClient'
+            }`}
+          >
             <img src={iconMail} alt="Icon mail" />
           </div>
           <p>{props.mail}</p>

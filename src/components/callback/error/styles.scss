@@ -1,0 +1,40 @@
+@import '../../../app/theme.scss';
+
+@keyframes appearError {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ModalError {
+  position: absolute;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  animation: appearError 0.5s forwards;
+  > div {
+    background-color: $white;
+    box-shadow: 0px 10px 44px rgba(224, 224, 224, 0.5);
+    height: 150px;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  h3 {
+    margin-bottom: 15px;
+  }
+}
