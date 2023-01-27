@@ -4,12 +4,21 @@
   .checkboxs {
     display: flex;
     margin: 8px 0 15px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media (min-width: 700px) {
+      flex-wrap: nowrap;
+    }
     > div {
-      width: 50%;
+      width: 100%;
       padding-left: 30px;
       position: relative;
       display: flex;
       align-items: center;
+      margin: 5px 0;
+      @media (min-width: 700px) {
+        width: 48%;
+      }
 
       &:hover {
         cursor: pointer;

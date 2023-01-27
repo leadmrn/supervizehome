@@ -5,17 +5,25 @@
     margin-bottom: 30px;
   }
   .columns {
-    display: flex;
-    justify-content: space-between;
+    @media (min-width: 700px) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
   .column-left {
-    width: 38%;
+    margin-bottom: 30px;
+    @media (min-width: 700px) {
+      width: 38%;
+      margin-bottom: 0;
+    }
     > div:first-child {
       margin-bottom: 30px;
     }
   }
   .column-right {
-    width: 58%;
+    @media (min-width: 700px) {
+      width: 58%;
+    }
   }
 }
 

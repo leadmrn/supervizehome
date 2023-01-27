@@ -1,6 +1,5 @@
 import { useNavigate, Outlet, useLocation, Link } from 'react-router-dom';
 
-import LinkMenu from '../links/link-menu';
 import Button from '../button';
 import logo from '../../assets/global/logo.svg';
 
@@ -14,7 +13,6 @@ export default function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
   const token = useSelector((state: any) => state.token);
-  const role = useSelector((state: any) => state.userInfo.type);
 
   const onLogout = () => {
     dispatch(logout());
@@ -55,9 +53,6 @@ export default function NavBar() {
             </div>
           ) : (
             <>
-              <div className="links">
-                <LinkMenu role={role} path="/dashboard" name="Dashboard" />
-              </div>
               <div className="buttons">
                 <Button
                   action={onLogout}

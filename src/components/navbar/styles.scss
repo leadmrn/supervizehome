@@ -2,23 +2,34 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  width: -webkit-fill-available;
+  background: #fbf9f6;
+  top: 0;
+  @media (min-width: 700px) {
+    padding: 20px;
+  }
   .logo {
-    height: 25px;
+    height: 15px;
+    @media (min-width: 700px) {
+      height: 25px;
+    }
     &:hover {
       cursor: pointer;
     }
   }
   nav,
-  .buttons,
-  .links {
+  .buttons {
     display: flex;
     align-items: center;
   }
-  .links {
-    margin-right: 10px;
-  }
   .Button:last-child {
-    margin-left: 20px;
+    margin-left: 10px;
+    @media (min-width: 700px) {
+      margin-left: 20px;
+    }
   }
 }
