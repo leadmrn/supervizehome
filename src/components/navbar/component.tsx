@@ -54,6 +54,14 @@ export default function NavBar() {
           ) : (
             <>
               <div className="buttons">
+                <Link
+                  className="Button secondary"
+                  to="/files/guide.pdf"
+                  target="_blank"
+                  download
+                >
+                  Télécharger notre guide de construction
+                </Link>
                 <Button
                   action={onLogout}
                   text="Deconnexion"
