@@ -13,6 +13,7 @@ import Report from './screens/report/screen';
 import { useSelector } from 'react-redux';
 
 import './app/theme.scss';
+import FrontPage from './screens/front-page/screen';
 
 export default function App() {
   const token = useSelector((state: any) => state.token);
@@ -22,6 +23,7 @@ export default function App() {
     <div id="app">
       <Routes>
         <Route path="/" element={<NavBar />}>
+          <Route path="/home" element={<FrontPage />} />
           {!token ? (
             <>
               <Route path="/login" element={<Login />} />

@@ -7,6 +7,7 @@ import './styles.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/userSlice';
 import { useEffect } from 'react';
+import LinkMenu from '../links/link-menu';
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -20,12 +21,10 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    if (location.pathname === '/' && token) {
-      navigate('/dashboard');
-    } else if (location.pathname === '/' && !token) {
-      navigate('/login');
+    if (location.pathname === '/') {
+      navigate('/home');
     }
-  }, [location.pathname, navigate, token]);
+  }, [location.pathname, navigate]);
 
   return (
     <div>
@@ -36,6 +35,14 @@ export default function NavBar() {
         <nav>
           {!token ? (
             <div className="buttons">
+              <Link
+                className="Button secondary linkGuide"
+                to="/files/guide.pdf"
+                target="_blank"
+                download
+              >
+                Télécharger notre guide de construction
+              </Link>
               <Button
                 action={() => {
                   navigate('/login');
@@ -53,9 +60,10 @@ export default function NavBar() {
             </div>
           ) : (
             <>
+              <LinkMenu path="/dashboard" name="Dashboard" role="artisan" />
               <div className="buttons">
                 <Link
-                  className="Button secondary"
+                  className="Button secondary linkGuide"
                   to="/files/guide.pdf"
                   target="_blank"
                   download
