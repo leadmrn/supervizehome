@@ -1,10 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Dropzone from 'react-dropzone';
 import { store } from '../../redux/store';
+import './styles.scss';
+import Button from '../button';
+import iconUploadFile from '../../assets/icons/download.png';
 
-function ImageUploader() {
+function ImageUploader(props: {
+  onUploadFiles: (data: any) => void;
+  text: string;
+}) {
   const [files, setFiles] = useState([]);
+  const [isUpload, setIsUpload] = useState<boolean>(false);
   const token = store.getState().token;
 
   function handleDrop(acceptedFiles: any) {
@@ -18,35 +25,59 @@ function ImageUploader() {
       formData.append('files', file);
     });
 
-    const upload_files = await axios.post(
-      'https://fast-citadel-34836.herokuapp.com/api/upload',
-      formData,
-      {
+    await axios
+      .post('https://fast-citadel-34836.herokuapp.com/api/upload', formData, {
         headers: {
           Authorization: `BEARER ${token}`,
         },
-      }
-    );
-
-    console.log('test', upload_files);
+      })
+      .then(async (resp) => {
+        if (resp.data) {
+          props.onUploadFiles(resp.data);
+          setIsUpload(true);
+        }
+      })
+      .catch(() => {
+        throw new Error('Une erreur est survenue');
+      });
   }
 
   return (
-    <div>
-      <Dropzone onDrop={handleDrop}>
-        {({ getRootProps, getInputProps }) => (
-          <div {...getRootProps()}>
-            <input {...getInputProps()} />
-            <p>Drag and drop some files here, or click to select files</p>
+    <div className="ImageUploader">
+      <div className="selector">
+        <Dropzone onDrop={handleDrop}>
+          {({ getRootProps, getInputProps }) => (
+            <div {...getRootProps()}>
+              <input {...getInputProps()} />
+              <img className="iconUploadFile" src={iconUploadFile} alt="icon" />
+              <p>{props.text}</p>
+            </div>
+          )}
+        </Dropzone>
+      </div>
+      <div className="list">
+        {files.map((file: any) => (
+          <div key={file.name}>
+            <p>{file.name}</p>
           </div>
-        )}
-      </Dropzone>
-      {files.map((file: any) => (
-        <div key={file.name}>
-          <p>{file.name}</p>
+        ))}
+      </div>
+      {!isUpload && files.length > 0 ? (
+        <div className="buttons">
+          <Button
+            className="button_submit"
+            text="Supprimer"
+            type="destructive"
+            action={() => setFiles([])}
+          />
+          <Button
+            className="button_submit"
+            text="Télécharger"
+            type="secondary"
+            action={handleSubmit}
+          />
         </div>
-      ))}
-      <button onClick={handleSubmit}>Upload</button>
+      ) : null}
     </div>
   );
 }

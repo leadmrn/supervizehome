@@ -49,7 +49,6 @@ export const userService = {
           type === 'client'
             ? `${api}/users/${resp.data.user.id}?populate=projects_clients`
             : `${api}/users/${resp.data.user.id}?populate=projects_artisans`;
-        console.log(req);
         await axios
           .get(req, {
             headers: {
@@ -190,7 +189,6 @@ export const reportsService = {
         },
       })
       .then(async (resp) => {
-        console.log(resp.data, 'test');
         store.dispatch(setSelectedReport(resp.data));
       })
       .catch(() => {

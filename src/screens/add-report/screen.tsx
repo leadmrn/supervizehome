@@ -5,7 +5,7 @@ import Back from '../../components/back/component';
 import Button from '../../components/button';
 import TextInput from '../../components/text-input';
 import { reportsService } from '../../service/api';
-import ImageUploader from '../../components/upload-files/component';
+import ImageUploader from '../../components/upload-files';
 
 function AddReport() {
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function AddReport() {
     name: '',
     description: '',
     start_date: '',
+    images: [],
   });
 
   const handleChange = (e: any) => {
@@ -41,6 +42,24 @@ function AddReport() {
     } catch (e) {
       console.log(e);
     }
+  };
+
+  const onUploadFiles = (data: any) => {
+    let filesId: any = [];
+    data.forEach((img: any) => filesId.push(img.id));
+    setFormAddReport((prevState) => ({
+      ...prevState,
+      images: filesId,
+    }));
+  };
+
+  const onUploadDocs = (data: any) => {
+    let filesId: any = [];
+    data.forEach((img: any) => filesId.push(img.id));
+    setFormAddReport((prevState) => ({
+      ...prevState,
+      images: filesId,
+    }));
   };
 
   return (
@@ -76,7 +95,10 @@ function AddReport() {
           type="textarea"
           placeholder="Décriver les travaux de manière exhaustive"
         />
-        <ImageUploader />
+        <ImageUploader
+          onUploadFiles={onUploadFiles}
+          text="Sélectionnez ou déposez vos images"
+        />
         <Button
           className="button_submit"
           text="Ajouter"

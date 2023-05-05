@@ -1,0 +1,32 @@
+@import '../../app/theme.scss';
+
+.ImageUploader {
+  border: 1px solid $artisan;
+  border-style: dashed;
+  padding: 10px;
+
+  .iconUploadFile {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+
+  .list {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .selector {
+    font-weight: bold;
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    .Button {
+      margin: 10px;
+    }
+  }
+}

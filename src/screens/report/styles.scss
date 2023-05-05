@@ -1,6 +1,9 @@
 @import '../../app/theme.scss';
 
 .Report {
+  h3 {
+    margin-bottom: 20px;
+  }
   .userInfo {
     display: flex;
     margin-top: 30px;
@@ -20,6 +23,10 @@
     }
   }
 
+  .date {
+    margin-bottom: 15px;
+  }
+
   .pictures,
   .documents {
     margin-top: 30px;
@@ -28,14 +35,13 @@
   .pictures {
     > div {
       display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-      > div {
-        width: 32%;
-        height: 250px;
-        background-color: $primary;
-        border-radius: 14px;
-      }
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    img {
+      width: 300px;
+      margin-right: 20px;
+      margin-bottom: 20px;
     }
   }
 }

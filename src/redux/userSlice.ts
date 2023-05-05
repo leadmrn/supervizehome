@@ -107,7 +107,6 @@ export const userSlice = createSlice({
         id: action.payload.data.id,
         ...action.payload.data.attributes,
       };
-      console.log(dataReport);
       state.reportsProject = [dataReport, ...state.reportsProject];
     },
   },

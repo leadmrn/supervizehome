@@ -16,8 +16,6 @@ function Dashboard() {
   const artisansProject = useSelector((state: any) => state.artisansProject);
   const reportsProject = useSelector((state: any) => state.reportsProject);
 
-  console.log(reportsProject);
-
   return (
     <div className="Dashboard page">
       <h2 className="hello">{`👋 Ravie de vous revoir ${firstName} ${lastName}`}</h2>

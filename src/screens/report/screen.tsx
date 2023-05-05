@@ -2,6 +2,7 @@ import './styles.scss';
 import Back from '../../components/back/component';
 import Badge from '../../components/badge';
 import { useSelector } from 'react-redux';
+import moment from 'moment';
 
 function Report() {
   const role = useSelector((state: any) => state.userInfo.type);
@@ -9,8 +10,8 @@ function Report() {
   const userReport = useSelector(
     (state: any) => state.selectedReport.user.data.attributes
   );
-
-  console.log(userReport);
+  const images = selectedReport.images.data;
+  const publishDate = moment(selectedReport.start_date).format('DD-MM-YYYY');
 
   return (
     <div className="Report page">
@@ -23,22 +24,32 @@ function Report() {
         <Badge role={role} job={userReport.job} />
       </div>
       <div className="description">
+        <p className="date">
+          <b>{publishDate}</b>
+        </p>
         <p>{selectedReport.description}</p>
       </div>
-      {/* <div className="pictures">
-        <h3>Images</h3>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
+      {images ? (
+        <div className="pictures">
+          <h3>Images</h3>
+          <div>
+            {images.map((img: any, index: number) => (
+              <img
+                className="Report_pic"
+                key={index}
+                src={`https://fast-citadel-34836.herokuapp.com${img.attributes.url}`}
+                alt="img"
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
       <div className="documents">
         <h3>Documents</h3>
         <div>
           <div>doc</div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

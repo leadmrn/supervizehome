@@ -3,6 +3,7 @@ import iconPicture from '../../assets/icons/attachment.svg';
 import iconFile from '../../assets/icons/file.svg';
 import { useNavigate } from 'react-router-dom';
 import { reportsService } from '../../service/api';
+import moment from 'moment';
 
 export default function ReportItem(props: {
   id: number;
@@ -50,7 +51,7 @@ export default function ReportItem(props: {
       ) : null}
       <div>
         <div className="date_job">
-          <h3>{props.date}</h3>
+          <h3>{moment(props.date).format('DD-MM-YYYY')}</h3>
         </div>
         <h4>{props.title}</h4>
         <p className="text">{props.content}</p>
