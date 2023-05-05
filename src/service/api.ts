@@ -181,7 +181,7 @@ export const artisansService = {
 
 export const reportsService = {
   getById: async (reportId: number) => {
-    const url = `${api}/reports/${reportId}?populate=user`;
+    const url = `${api}/reports/${reportId}?populate=*`;
     const token = store.getState().token;
     await axios
       .get(url, {
@@ -190,6 +190,7 @@ export const reportsService = {
         },
       })
       .then(async (resp) => {
+        console.log(resp.data, 'test');
         store.dispatch(setSelectedReport(resp.data));
       })
       .catch(() => {

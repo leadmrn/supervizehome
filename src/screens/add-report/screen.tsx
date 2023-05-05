@@ -5,6 +5,7 @@ import Back from '../../components/back/component';
 import Button from '../../components/button';
 import TextInput from '../../components/text-input';
 import { reportsService } from '../../service/api';
+import ImageUploader from '../../components/upload-files/component';
 
 function AddReport() {
   const navigate = useNavigate();
@@ -75,6 +76,7 @@ function AddReport() {
           type="textarea"
           placeholder="Décriver les travaux de manière exhaustive"
         />
+        <ImageUploader />
         <Button
           className="button_submit"
           text="Ajouter"
