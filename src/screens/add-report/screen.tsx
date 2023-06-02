@@ -53,14 +53,14 @@ function AddReport() {
     }));
   };
 
-  const onUploadDocs = (data: any) => {
-    let filesId: any = [];
-    data.forEach((img: any) => filesId.push(img.id));
-    setFormAddReport((prevState) => ({
-      ...prevState,
-      images: filesId,
-    }));
-  };
+  // const onUploadDocs = (data: any) => {
+  //   let filesId: any = [];
+  //   data.forEach((img: any) => filesId.push(img.id));
+  //   setFormAddReport((prevState) => ({
+  //     ...prevState,
+  //     images: filesId,
+  //   }));
+  // };
 
   return (
     <div className="AddReport page content_center">
