@@ -7,8 +7,17 @@ import ReportItem from '../../components/report-item';
 import TitleMedium from '../../components/texts';
 
 import './styles.scss';
+import Search from '../../components/search';
+import { useState } from 'react';
+
+const removeUppercaseAccent = (string: string) => {
+  const value = string.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  return value.toLowerCase();
+};
 
 function Dashboard() {
+  const [search, setSearch] = useState<string>('');
+
   const firstName = useSelector((state: any) => state.userInfo.firstName);
   const lastName = useSelector((state: any) => state.userInfo.lastName);
   const role = useSelector((state: any) => state.userInfo.type);
@@ -68,21 +77,42 @@ function Dashboard() {
         </div>
         <div className="column-right">
           <div>
-            <div className="Dashboard_divTitle">
+            <div className="Dashboard_divSearch">
               <TitleMedium title="rapports travaux" />
+              <Search
+                onSearch={(value) => {
+                  setSearch(value);
+                }}
+              />
             </div>
             <div>
-              {reportsProject.map((report: any) => (
-                <ReportItem
-                  id={report.id}
-                  title={report.name}
-                  content={report.description}
-                  date={report.start_date}
-                  createdAt={report.createdAt}
-                  role={role}
-                  key={report.id}
-                />
-              ))}
+              {search !== ''
+                ? reportsProject.map((report: any) =>
+                    removeUppercaseAccent(report.name).includes(
+                      removeUppercaseAccent(search)
+                    ) ? (
+                      <ReportItem
+                        id={report.id}
+                        title={report.name}
+                        content={report.description}
+                        date={report.start_date}
+                        createdAt={report.createdAt}
+                        role={role}
+                        key={report.id}
+                      />
+                    ) : null
+                  )
+                : reportsProject.map((report: any) => (
+                    <ReportItem
+                      id={report.id}
+                      title={report.name}
+                      content={report.description}
+                      date={report.start_date}
+                      createdAt={report.createdAt}
+                      role={role}
+                      key={report.id}
+                    />
+                  ))}
               {reportsProject.length === 0 && role === 'client' ? (
                 <p>Vos artisans n'ont pas écrit de rapports pour le moment.</p>
               ) : null}
