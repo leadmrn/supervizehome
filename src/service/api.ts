@@ -4,6 +4,7 @@ import {
   addArtisan,
   addProject,
   addReport,
+  deleteReport,
   login,
   setProjects,
   setSelectedProject,
@@ -210,6 +211,22 @@ export const reportsService = {
       )
       .then((resp) => {
         store.dispatch(addReport(resp.data));
+      })
+      .catch(() => {
+        throw new Error('Une erreur est survenue');
+      });
+  },
+  delete: async (reportId: number) => {
+    const url = `${api}/reports/${reportId}`;
+    const token = store.getState().token;
+    await axios
+      .delete(url, {
+        headers: {
+          Authorization: `BEARER ${token}`,
+        },
+      })
+      .then(async (resp) => {
+        store.dispatch(deleteReport(resp.data));
       })
       .catch(() => {
         throw new Error('Une erreur est survenue');

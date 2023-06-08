@@ -98,7 +98,7 @@ export const userSlice = createSlice({
     },
     setSelectedReport: (state, action) => {
       state.selectedReport = {
-        ...action.payload.data.id,
+        id: action.payload.data.id,
         ...action.payload.data.attributes,
       };
     },
@@ -108,6 +108,15 @@ export const userSlice = createSlice({
         ...action.payload.data.attributes,
       };
       state.reportsProject = [dataReport, ...state.reportsProject];
+    },
+    deleteReport: (state, action) => {
+      const dataReport = {
+        id: action.payload.data.id,
+        ...action.payload.data.attributes,
+      };
+      const index = state.reportsProject.indexOf(dataReport);
+
+      state.reportsProject.splice(index, 1);
     },
   },
 });
@@ -121,6 +130,7 @@ export const {
   addArtisan,
   setSelectedReport,
   addReport,
+  deleteReport,
 } = userSlice.actions;
 
 export default userSlice.reducer;

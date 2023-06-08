@@ -6,8 +6,13 @@
   }
   .userInfo {
     display: flex;
+    justify-content: space-between;
     margin-top: 30px;
     align-items: center;
+    > div {
+      display: flex;
+      align-items: center;
+    }
     h2 {
       margin-right: 20px;
     }
