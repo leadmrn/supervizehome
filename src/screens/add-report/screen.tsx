@@ -93,7 +93,7 @@ function AddReport() {
           onChange={handleChange}
           value={formAddReport.description}
           type="textarea"
-          placeholder="Décriver les travaux de manière exhaustive"
+          placeholder="Décrivez les travaux de manière exhaustive"
         />
         <ImageUploader
           onUploadFiles={onUploadFiles}
