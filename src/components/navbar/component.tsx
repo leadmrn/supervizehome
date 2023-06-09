@@ -60,7 +60,11 @@ export default function NavBar() {
             </div>
           ) : (
             <>
-              <LinkMenu path="/dashboard" name="Dashboard" role="artisan" />
+              <LinkMenu
+                path="/dashboard"
+                name="Tableau de bord"
+                role="artisan"
+              />
               <div className="buttons">
                 <Link
                   className="Button secondary linkGuide"

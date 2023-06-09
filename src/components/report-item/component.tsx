@@ -4,7 +4,7 @@ import iconFile from '../../assets/icons/file.svg';
 import { useNavigate } from 'react-router-dom';
 import { reportsService } from '../../service/api';
 import moment from 'moment';
-//import Badge from '../badge';
+import Badge from '../badge';
 
 export default function ReportItem(props: {
   id: number;
@@ -54,7 +54,7 @@ export default function ReportItem(props: {
       <div>
         <div className="date_job">
           <h3>{moment(props.date).format('DD-MM-YYYY')}</h3>
-          {/* <Badge job={props.user.job} role={props.user.type} /> */}
+          <Badge job={props.user.job} role={props.user.type} />
         </div>
         <h4>{props.title}</h4>
         <p className="text">{props.content}</p>

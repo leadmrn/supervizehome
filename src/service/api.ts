@@ -197,7 +197,7 @@ export const reportsService = {
       });
   },
   create: async (reportInfo: any) => {
-    const url = `${api}/reports`;
+    const url = `${api}/reports?populate=*`;
     const token = store.getState().token;
     await axios
       .post(

@@ -72,7 +72,7 @@ function FrontPage() {
           </Link>
         </div>
         <div>
-          <h2>Le Dashboard</h2>
+          <h2>Le tableau de bord</h2>
           <img src={img2} alt="Pic 2" />
           <p>
             Laissez vous accompagner par les meilleurs artisans pour construire

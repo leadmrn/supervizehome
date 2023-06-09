@@ -107,6 +107,8 @@ export const userSlice = createSlice({
     addReport: (state, action) => {
       const dataReport = {
         id: action.payload.data.id,
+        user: action.payload.data.attributes.user.data.attributes,
+        images: action.payload.data.attributes.images.data,
         ...action.payload.data.attributes,
       };
       state.reportsProject = [dataReport, ...state.reportsProject];
