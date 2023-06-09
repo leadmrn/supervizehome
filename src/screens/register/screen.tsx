@@ -16,7 +16,7 @@ function Register() {
     password: '',
     firstName: '',
     lastName: '',
-    type: '',
+    type: 'client',
     job: '',
     tel: '',
   });
