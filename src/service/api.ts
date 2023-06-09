@@ -122,7 +122,7 @@ export const projectService = {
       });
   },
   getById: async (projectId: number) => {
-    const url = `${api}/projects/${projectId}?populate=users_artisans&populate=reports`;
+    const url = `${api}/projects/${projectId}?populate=users_artisans&populate=reports.*,reports.user,reports.images`;
     const token = store.getState().token;
     axios
       .get(url, {

@@ -102,6 +102,8 @@ function Dashboard() {
                         createdAt={report.createdAt}
                         role={role}
                         key={report.id}
+                        user={report.user}
+                        pics={report.images}
                       />
                     ) : null
                   )
@@ -114,6 +116,8 @@ function Dashboard() {
                       createdAt={report.createdAt}
                       role={role}
                       key={report.id}
+                      user={report.user}
+                      pics={report.images}
                     />
                   ))}
               {reportsProject.length === 0 && role === 'client' ? (

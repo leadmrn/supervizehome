@@ -78,6 +78,8 @@ export const userSlice = createSlice({
           report_type: report.attributes.report_type,
           step: report.attributes.step,
           createdAt: report.attributes.createdAt,
+          user: report.attributes.user.data.attributes,
+          images: report.attributes.images.data,
         };
         state.reportsProject = [...state.reportsProject, reportProject];
       });
