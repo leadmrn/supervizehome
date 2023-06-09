@@ -108,13 +108,19 @@ function Register() {
           onChange={handleChange}
         />
         <div className={`input_job ${isArtisan ? 'show' : null}`}>
-          <TextInput
-            id="job"
-            type="text"
-            placeholder="Profession"
-            value={formRegister.job}
-            onChange={handleChange}
-          />
+          <label htmlFor="job">Profession</label>
+          <select name="job" id="job" required onChange={handleChange}>
+            <option value="Coordinateur">Coordinateur</option>
+            <option value="Peintre">Peintre</option>
+            <option value="Serrurier">Serrurier</option>
+            <option value="Chauffagiste">Chauffagiste</option>
+            <option value="Couvreur">Couvreur</option>
+            <option value="Maçon">Maçon</option>
+            <option value="Plombier">Plombier</option>
+            <option value="Electricien">Electricien</option>
+            <option value="Architecte">Architecte</option>
+            <option value="Autre">Autre</option>
+          </select>
         </div>
         <Button
           className="button_submit"

@@ -43,6 +43,7 @@
   }
   .input_job {
     display: flex;
+    flex-direction: column;
     z-index: -1;
     opacity: 0;
     transform: translateY(-100%);
@@ -52,8 +53,19 @@
       transform: translateY(0);
       z-index: 0;
     }
-    input {
+    label {
+      margin: 10px 0 7px;
+    }
+    select {
       width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #dfdfdf;
+      border-radius: 5px;
+      font-family: 'Montserrat';
+
+      &:focus {
+        outline: none;
+      }
     }
   }
   .link {
