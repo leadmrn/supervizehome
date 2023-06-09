@@ -43,6 +43,7 @@ function Register() {
 
   const onRegister = async () => {
     try {
+      console.log(formRegister);
       await userService.register(formRegister);
       navigate('/login');
     } catch (e) {
