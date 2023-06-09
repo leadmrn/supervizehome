@@ -90,6 +90,9 @@ function Dashboard() {
                 ? reportsProject.map((report: any) =>
                     removeUppercaseAccent(report.name).includes(
                       removeUppercaseAccent(search)
+                    ) ||
+                    removeUppercaseAccent(report.description).includes(
+                      removeUppercaseAccent(search)
                     ) ? (
                       <ReportItem
                         id={report.id}
