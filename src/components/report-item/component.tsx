@@ -4,7 +4,7 @@ import iconFile from '../../assets/icons/file.svg';
 import { useNavigate } from 'react-router-dom';
 import { reportsService } from '../../service/api';
 import moment from 'moment';
-import Badge from '../badge';
+//import Badge from '../badge';
 
 export default function ReportItem(props: {
   id: number;
