@@ -9,7 +9,7 @@ import './styles.scss';
 function Register() {
   const navigate = useNavigate();
   const [isArtisan, setIsArtisan] = useState(false);
-  const [isClient, setIsClient] = useState(false);
+  const [isClient, setIsClient] = useState(true);
   const [formRegister, setFormRegister] = useState({
     username: '',
     email: '',
@@ -17,6 +17,8 @@ function Register() {
     firstName: '',
     lastName: '',
     type: '',
+    job: '',
+    tel: '',
   });
 
   const handleChange = (e: any) => {
@@ -98,7 +100,7 @@ function Register() {
           value={formRegister.password}
           onChange={handleChange}
         />
-        {/* <TextInput
+        <TextInput
           id="tel"
           type="tel"
           placeholder="N° de Téléphone"
@@ -113,7 +115,7 @@ function Register() {
             value={formRegister.job}
             onChange={handleChange}
           />
-        </div> */}
+        </div>
         <Button
           className="button_submit"
           text="S'inscrire"
