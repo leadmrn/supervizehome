@@ -63,12 +63,12 @@ function Report() {
           </div>
         </div>
       ) : null}
-      <div className="documents">
+      {/* <div className="documents">
         <h3>Documents</h3>
         <div>
           <div>doc</div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
