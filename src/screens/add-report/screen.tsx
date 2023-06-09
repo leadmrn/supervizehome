@@ -7,6 +7,8 @@ import TextInput from '../../components/text-input';
 import { reportsService } from '../../service/api';
 import ImageUploader from '../../components/upload-files';
 
+import './styles.scss';
+
 function AddReport() {
   const navigate = useNavigate();
   const idUser = useSelector((state: any) => state.userInfo.id);
@@ -15,6 +17,7 @@ function AddReport() {
     name: '',
     description: '',
     start_date: '',
+    step: '',
     images: [],
   });
 
@@ -74,20 +77,29 @@ function AddReport() {
           type="text"
           placeholder="Titre"
         />
-        <TextInput
-          id="start_date"
-          onChange={handleChange}
-          value={formAddReport.start_date}
-          type="date"
-          placeholder="Début des travaux"
-        />
-        {/* <TextInput
-          id="step"
-          onChange={handleChange}
-          value={formAddReport.step}
-          type="text"
-          placeholder="Phase de construction"
-        /> */}
+        <div className="div_input">
+          <label htmlFor="start_date">Date des travaux</label>
+          <TextInput
+            id="start_date"
+            onChange={handleChange}
+            value={formAddReport.start_date}
+            type="date"
+            placeholder="Date des travaux"
+          />
+        </div>
+        <div className="div_input">
+          <label htmlFor="start_date">Phase de construction</label>
+          <select name="step" id="step" required onChange={handleChange}>
+            <option value="Travaux de finition intérieure">
+              Travaux de finition intérieure
+            </option>
+            <option value="Gros œuvre">Gros œuvre</option>
+            <option value="Second œuvre">Second œuvre</option>
+            <option value="Finition">Finition</option>
+            <option value="Conception extérieure">Conception extérieure</option>
+            <option value="Réception des clés">Réception des clés</option>
+          </select>
+        </div>
         <TextInput
           id="description"
           onChange={handleChange}

@@ -110,13 +110,14 @@ export const userSlice = createSlice({
       state.reportsProject = [dataReport, ...state.reportsProject];
     },
     deleteReport: (state, action) => {
-      const dataReport = {
-        id: action.payload.data.id,
-        ...action.payload.data.attributes,
-      };
-      const index = state.reportsProject.indexOf(dataReport);
+      const idReport = action.payload.data.id;
+      let elementPos = state.reportsProject
+        .map(function (x) {
+          return x.id;
+        })
+        .indexOf(idReport);
 
-      state.reportsProject.splice(index, 1);
+      state.reportsProject.splice(elementPos, 1);
     },
   },
 });
