@@ -70,13 +70,16 @@ function AddReport() {
       <Back />
       <h1 className="center">Mon rapport</h1>
       <form className="form">
-        <TextInput
-          id="name"
-          onChange={handleChange}
-          value={formAddReport.name}
-          type="text"
-          placeholder="Titre"
-        />
+        <div className="div_input">
+          <label htmlFor="start_date">Donnez un titre à votre rapport</label>
+          <TextInput
+            id="name"
+            onChange={handleChange}
+            value={formAddReport.name}
+            type="text"
+            placeholder="Titre"
+          />
+        </div>
         <div className="div_input">
           <label htmlFor="start_date">Date des travaux</label>
           <TextInput
@@ -100,13 +103,16 @@ function AddReport() {
             <option value="Réception des clés">Réception des clés</option>
           </select>
         </div>
-        <TextInput
-          id="description"
-          onChange={handleChange}
-          value={formAddReport.description}
-          type="textarea"
-          placeholder="Décrivez les travaux de manière exhaustive"
-        />
+        <div className="div_input">
+          <label htmlFor="start_date">Description</label>
+          <TextInput
+            id="description"
+            onChange={handleChange}
+            value={formAddReport.description}
+            type="textarea"
+            placeholder="Décrivez les travaux de manière exhaustive"
+          />
+        </div>
         <ImageUploader
           onUploadFiles={onUploadFiles}
           text="Sélectionnez ou déposez vos images"
@@ -114,7 +120,7 @@ function AddReport() {
         <Button
           className="button_submit"
           text="Ajouter"
-          type="primary"
+          type="secondary"
           action={onAddReport}
         />
       </form>

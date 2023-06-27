@@ -16,7 +16,8 @@ function Report() {
   );
   const user = useSelector((state: any) => state.userInfo);
   const images = selectedReport.images.data;
-  const publishDate = moment(selectedReport.start_date).format('DD-MM-YYYY');
+  const publishDate = moment(selectedReport.start_date).format('DD/MM/YYYY');
+  console.log(selectedReport);
 
   const onDelete = async () => {
     try {
@@ -44,7 +45,9 @@ function Report() {
       </div>
       <div className="description">
         <p className="date">
-          <b>{publishDate}</b>
+          <b>Date de début : {publishDate}</b>
+          <br></br>
+          <b>Étape : {selectedReport.step}</b>
         </p>
         <p>{selectedReport.description}</p>
       </div>
