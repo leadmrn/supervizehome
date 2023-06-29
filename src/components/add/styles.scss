@@ -14,4 +14,18 @@
   &:hover img {
     transform: rotate(180deg);
   }
+  &.Add-report {
+    margin-bottom: 20px;
+    div {
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+    img {
+      height: 30px;
+    }
+    p {
+      margin-top: 0;
+      margin-right: 10px;
+    }
+  }
 }

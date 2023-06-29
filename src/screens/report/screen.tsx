@@ -46,8 +46,12 @@ function Report() {
       <div className="description">
         <p className="date">
           <b>Date de début : {publishDate}</b>
-          <br></br>
-          <b>Étape : {selectedReport.step}</b>
+          {selectedReport.step ? (
+            <>
+              <br></br>
+              <b>Étape : {selectedReport.step}</b>
+            </>
+          ) : null}
         </p>
         <p>{selectedReport.description}</p>
       </div>

@@ -9,7 +9,9 @@ export default function Add(props: {
   text: string;
 }) {
   return (
-    <div className="Add">
+    <div
+      className={props.routeToGo === '/add-report' ? 'Add Add-report' : 'Add'}
+    >
       <Link to={props.routeToGo}>
         <div
           className={props.role === 'artisan' ? 'colorArtisan' : 'colorClient'}

@@ -36,7 +36,7 @@ function Login() {
         <TextInput
           id="identifier"
           type="email"
-          placeholder="Email"
+          placeholder="Email / Identifiant"
           value={formLogin.identifier}
           onChange={handleChange}
         />

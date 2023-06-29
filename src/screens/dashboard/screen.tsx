@@ -79,6 +79,13 @@ function Dashboard() {
           <div>
             <div className="Dashboard_divSearch">
               <TitleMedium title="rapports travaux" />
+              {role === 'artisan' && selectedProject.name ? (
+                <Add
+                  role={role}
+                  routeToGo="/add-report"
+                  text="Ajouter un rapport"
+                />
+              ) : null}
               <Search
                 onSearch={(value) => {
                   setSearch(value);
@@ -122,13 +129,6 @@ function Dashboard() {
                   ))}
               {reportsProject.length === 0 && role === 'client' ? (
                 <p>Vos artisans n'ont pas écrit de rapports pour le moment.</p>
-              ) : null}
-              {role === 'artisan' && selectedProject.name ? (
-                <Add
-                  role={role}
-                  routeToGo="/add-report"
-                  text="Ajouter un rapport"
-                />
               ) : null}
             </div>
           </div>
