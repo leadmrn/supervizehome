@@ -1,0 +1,15 @@
+.TitleMedium {
+  display: flex;
+  align-items: center;
+  div {
+    border-radius: 5px;
+    background: rgba(233, 136, 98, 0.38);
+    display: flex;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin-left: 10px;
+  }
+  &.artisan div {
+    background: rgba(51, 102, 106, 0.38);
+  }
+}

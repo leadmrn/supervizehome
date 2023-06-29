@@ -52,7 +52,10 @@ function Dashboard() {
           </div>
           <div>
             <div className="Dashboard_divTitle">
-              <TitleMedium title="l'équipe projet" />
+              <TitleMedium
+                title="l'équipe projet"
+                number={artisansProject.length}
+              />
               {role === 'artisan' ? null : (
                 <LinkInline role={role} name="ajouter" path="/add-artisan" />
               )}
@@ -78,7 +81,10 @@ function Dashboard() {
         <div className="column-right">
           <div>
             <div className="Dashboard_divSearch">
-              <TitleMedium title="rapports travaux" />
+              <TitleMedium
+                title="rapports travaux"
+                number={reportsProject.length}
+              />
               {role === 'artisan' && selectedProject.name ? (
                 <Add
                   role={role}
