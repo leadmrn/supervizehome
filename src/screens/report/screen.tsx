@@ -72,31 +72,33 @@ function Report() {
           </div>
         </div>
       ) : null}
-      <div className="documents">
-        <h3>Documents</h3>
-        <div>
-          {files.map((doc: any, index: number) => (
-            <div className="Report_doc" key={index}>
-              <div>
-                <img src={iconUploadFile} alt="icon upload" />
+      {files ? (
+        <div className="documents">
+          <h3>Documents</h3>
+          <div>
+            {files.map((doc: any, index: number) => (
+              <div className="Report_doc" key={index}>
                 <div>
-                  <p>
-                    <b>{doc.attributes.name}</b>
-                  </p>
+                  <img src={iconUploadFile} alt="icon upload" />
+                  <div>
+                    <p>
+                      <b>{doc.attributes.name}</b>
+                    </p>
+                  </div>
                 </div>
+                <a
+                  href={`https://fast-citadel-34836.herokuapp.com${doc.attributes.url}`}
+                  download
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <img src={iconDownloadFile} alt="icon télécharger" />
+                </a>
               </div>
-              <a
-                href={`https://fast-citadel-34836.herokuapp.com${doc.attributes.url}`}
-                download
-                rel="noreferrer"
-                target="_blank"
-              >
-                <img src={iconDownloadFile} alt="icon télécharger" />
-              </a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
