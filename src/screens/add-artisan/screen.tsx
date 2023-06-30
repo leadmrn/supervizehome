@@ -6,9 +6,11 @@ import Button from '../../components/button';
 import TextInput from '../../components/text-input';
 import { artisansService } from '../../service/api';
 import './styles.scss';
+import Error from '../../components/error';
 
 function AddArtisan() {
   const [search, setSearch] = useState('');
+  const [error, showError] = useState(false);
   const artisansProject = useSelector((state: any) => state.artisansProject);
   const navigate = useNavigate();
 
@@ -21,14 +23,17 @@ function AddArtisan() {
     const alreadyAdd = artisansProject.findIndex(
       (artisan: any) => artisan.email === search
     );
+    if (error) showError(false);
     if (alreadyAdd === -1) {
       try {
         await artisansService.getByEmail(search);
         navigate('/dashboard');
       } catch (e) {
+        showError(true);
         console.log(e);
       }
     } else {
+      showError(true);
       console.log('Artisan déjà ajouté');
     }
   };
@@ -55,6 +60,7 @@ function AddArtisan() {
           action={onAddArtisan}
         />
       </form>
+      {error ? <Error /> : null}
     </div>
   );
 }

@@ -7,8 +7,10 @@ import TextInput from '../../components/text-input';
 import { projectService } from '../../service/api';
 
 import './styles.scss';
+import Error from '../../components/error';
 
 function AddProject({ isFirst = false }: { isFirst?: boolean }) {
+  const [error, showError] = useState(false);
   const [formAddProject, setFormAddProject] = useState({
     name: '',
     location: '',
@@ -32,9 +34,11 @@ function AddProject({ isFirst = false }: { isFirst?: boolean }) {
 
   const onAddProject = async () => {
     try {
+      if (error) showError(false);
       await projectService.create(formAddProject);
       navigate('/projects');
     } catch (e) {
+      showError(true);
       console.log(e);
     }
   };
@@ -96,6 +100,7 @@ function AddProject({ isFirst = false }: { isFirst?: boolean }) {
           action={onAddProject}
         />
       </form>
+      {error ? <Error /> : null}
     </div>
   );
 }

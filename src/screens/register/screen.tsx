@@ -5,9 +5,11 @@ import TextInput from '../../components/text-input';
 import { userService } from '../../service/api';
 
 import './styles.scss';
+import Error from '../../components/error';
 
 function Register() {
   const navigate = useNavigate();
+  const [error, showError] = useState(false);
   const [isArtisan, setIsArtisan] = useState(false);
   const [isClient, setIsClient] = useState(true);
   const [formRegister, setFormRegister] = useState({
@@ -43,10 +45,12 @@ function Register() {
 
   const onRegister = async () => {
     try {
+      if (error) showError(false);
       console.log(formRegister);
       await userService.register(formRegister);
       navigate('/login');
     } catch (e) {
+      showError(true);
       console.log(e);
     }
   };
@@ -133,6 +137,7 @@ function Register() {
       <Link to="/login" className="link">
         déjà inscrit ?
       </Link>
+      {error ? <Error /> : null}
     </div>
   );
 }

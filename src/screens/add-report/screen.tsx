@@ -8,11 +8,13 @@ import { reportsService } from '../../service/api';
 import ImageUploader from '../../components/upload-files';
 
 import './styles.scss';
+import Error from '../../components/error';
 
 function AddReport() {
   const navigate = useNavigate();
   const idUser = useSelector((state: any) => state.userInfo.id);
   const idProject = useSelector((state: any) => state.idSelectedProject);
+  const [error, showError] = useState(false);
   const [formAddReport, setFormAddReport] = useState({
     name: '',
     description: '',
@@ -40,9 +42,11 @@ function AddReport() {
       },
     };
     try {
+      if (error) showError(false);
       await reportsService.create(dataReport);
       navigate('/dashboard');
     } catch (e) {
+      showError(true);
       console.log(e);
     }
   };
@@ -124,6 +128,7 @@ function AddReport() {
           action={onAddReport}
         />
       </form>
+      {error ? <Error /> : null}
     </div>
   );
 }

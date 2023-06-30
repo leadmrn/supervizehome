@@ -4,9 +4,11 @@ import Button from '../../components/button';
 import { userService } from '../../service/api';
 import { useState } from 'react';
 import './styles.scss';
+import Error from '../../components/error';
 
 function Login() {
   const navigate = useNavigate();
+  const [error, showError] = useState(false);
   const [formLogin, setFormLogin] = useState({
     identifier: '',
     password: '',
@@ -22,9 +24,11 @@ function Login() {
 
   const onLogin = async () => {
     try {
+      if (error) showError(false);
       await userService.login(formLogin);
       navigate('/projects');
     } catch (e) {
+      showError(true);
       console.log(e);
     }
   };
@@ -57,6 +61,7 @@ function Login() {
       <Link className="link" to="/register">
         pas encore inscrit ?
       </Link>
+      {error ? <Error /> : null}
     </div>
   );
 }
