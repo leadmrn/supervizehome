@@ -6,6 +6,8 @@ import moment from 'moment';
 import Button from '../../components/button';
 import { reportsService } from '../../service/api';
 import { useNavigate } from 'react-router-dom';
+import iconUploadFile from '../../assets/icons/download.png';
+import iconDownloadFile from '../../assets/icons/download.svg';
 
 function Report() {
   const navigate = useNavigate();
@@ -16,8 +18,8 @@ function Report() {
   );
   const user = useSelector((state: any) => state.userInfo);
   const images = selectedReport.images.data;
+  const files = selectedReport.files.data;
   const publishDate = moment(selectedReport.start_date).format('DD/MM/YYYY');
-  console.log(selectedReport);
 
   const onDelete = async () => {
     try {
@@ -70,12 +72,31 @@ function Report() {
           </div>
         </div>
       ) : null}
-      {/* <div className="documents">
+      <div className="documents">
         <h3>Documents</h3>
         <div>
-          <div>doc</div>
+          {files.map((doc: any, index: number) => (
+            <div className="Report_doc" key={index}>
+              <div>
+                <img src={iconUploadFile} alt="icon upload" />
+                <div>
+                  <p>
+                    <b>{doc.attributes.name}</b>
+                  </p>
+                </div>
+              </div>
+              <a
+                href={`https://fast-citadel-34836.herokuapp.com${doc.attributes.url}`}
+                download
+                rel="noreferrer"
+                target="_blank"
+              >
+                <img src={iconDownloadFile} alt="icon télécharger" />
+              </a>
+            </div>
+          ))}
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

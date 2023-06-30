@@ -21,6 +21,7 @@ function AddReport() {
     start_date: '',
     step: '',
     images: [],
+    files: [],
   });
 
   const handleChange = (e: any) => {
@@ -60,14 +61,14 @@ function AddReport() {
     }));
   };
 
-  // const onUploadDocs = (data: any) => {
-  //   let filesId: any = [];
-  //   data.forEach((img: any) => filesId.push(img.id));
-  //   setFormAddReport((prevState) => ({
-  //     ...prevState,
-  //     images: filesId,
-  //   }));
-  // };
+  const onUploadDocs = (data: any) => {
+    let docsId: any = [];
+    data.forEach((doc: any) => docsId.push(doc.id));
+    setFormAddReport((prevState) => ({
+      ...prevState,
+      files: docsId,
+    }));
+  };
 
   return (
     <div className="AddReport page content_center">
@@ -118,8 +119,14 @@ function AddReport() {
           />
         </div>
         <ImageUploader
+          usage="pics"
           onUploadFiles={onUploadFiles}
-          text="Sélectionnez ou déposez vos images"
+          text="Sélectionnez ou déposez vos images (jpg, png)"
+        />
+        <ImageUploader
+          usage="docs"
+          onUploadFiles={onUploadDocs}
+          text="Sélectionnez ou déposez vos documents"
         />
         <Button
           className="button_submit"

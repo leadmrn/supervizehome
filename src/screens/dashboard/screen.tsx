@@ -117,6 +117,7 @@ function Dashboard() {
                         key={report.id}
                         user={report.user}
                         pics={report.images}
+                        files={report.files}
                       />
                     ) : null
                   )
@@ -131,6 +132,7 @@ function Dashboard() {
                       key={report.id}
                       user={report.user}
                       pics={report.images}
+                      files={report.files}
                     />
                   ))}
               {reportsProject.length === 0 && role === 'client' ? (

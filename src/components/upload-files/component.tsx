@@ -9,6 +9,7 @@ import iconUploadFile from '../../assets/icons/download.png';
 function ImageUploader(props: {
   onUploadFiles: (data: any) => void;
   text: string;
+  usage: string;
 }) {
   const [files, setFiles] = useState([]);
   const [isUpload, setIsUpload] = useState<boolean>(false);
@@ -45,7 +46,12 @@ function ImageUploader(props: {
   return (
     <div className="ImageUploader">
       <div className="selector">
-        <Dropzone onDrop={handleDrop}>
+        <Dropzone
+          onDrop={handleDrop}
+          accept={
+            props.usage === 'pics' ? { 'image/jpeg': [], 'image/png': [] } : {}
+          }
+        >
           {({ getRootProps, getInputProps }) => (
             <div {...getRootProps()}>
               <input {...getInputProps()} />

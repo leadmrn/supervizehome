@@ -38,7 +38,7 @@ function FrontPage() {
           </div>
           <div>
             <img src={picto2} alt="Picto 2" />
-            <h4>2. Surveillance participative</h4>
+            <h4>2. Suivi continu</h4>
             <p>
               Travaillez main dans la main avec vos artisans. Notre plateforme
               permets aux artisans de consigner l’avancé de vos projets

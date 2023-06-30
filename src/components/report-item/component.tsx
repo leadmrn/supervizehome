@@ -12,8 +12,8 @@ export default function ReportItem(props: {
   content: string;
   date: string;
   createdAt: string;
-  pics?: [];
-  documents?: [];
+  pics?: any;
+  files?: any;
   role: 'client' | 'artisan';
   user: any;
 }) {
@@ -30,22 +30,23 @@ export default function ReportItem(props: {
 
   return (
     <div onClick={onClick} className="ReportItem">
-      {props.pics || props.documents ? (
+      {props.pics || props.files ? (
         <div className="attachments_files">
-          {props.pics ? (
+          {props.pics && props.pics.data ? (
             <div>
               <img src={iconPicture} alt="Icon" />
               <p>
-                {props.pics.length} {props.pics.length > 1 ? 'images' : 'image'}
+                {props.pics.data.length}{' '}
+                {props.pics.data.length > 1 ? 'images' : 'image'}
               </p>
             </div>
           ) : null}
-          {props.documents ? (
+          {props.files && props.files.data ? (
             <div>
               <img src={iconFile} alt="Icon" />
               <p>
-                {props.documents.length}{' '}
-                {props.documents.length > 1 ? 'documents' : 'document'}
+                {props.files.data.length}{' '}
+                {props.files.data.length > 1 ? 'documents' : 'document'}
               </p>
             </div>
           ) : null}
