@@ -65,7 +65,7 @@ function Report() {
               <img
                 className="Report_pic"
                 key={index}
-                src={`https://fast-citadel-34836.herokuapp.com${img.attributes.url}`}
+                src={img.attributes.url}
                 alt="img"
               />
             ))}
@@ -87,7 +87,7 @@ function Report() {
                   </div>
                 </div>
                 <a
-                  href={`https://fast-citadel-34836.herokuapp.com${doc.attributes.url}`}
+                  href={doc.attributes.url}
                   download
                   rel="noreferrer"
                   target="_blank"

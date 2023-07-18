@@ -24,6 +24,7 @@ function Dashboard() {
   const selectedProject = useSelector((state: any) => state.selectedProject);
   const artisansProject = useSelector((state: any) => state.artisansProject);
   const reportsProject = useSelector((state: any) => state.reportsProject);
+  console.log(reportsProject);
 
   return (
     <div className="Dashboard page">
